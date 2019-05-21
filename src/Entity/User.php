@@ -7,9 +7,12 @@ use DateTimeInterface;
 use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\ORM\Mapping as ORM;
 use Doctrine\Common\Collections\Collection;
+use JMS\Serializer\Annotation as Serializer;
+use JMS\Serializer\Annotation\Groups;
 
 /**
  * @ORM\Entity(repositoryClass="App\Repository\UserRepository")
+ * @Serializer\ExclusionPolicy("all")
  */
 class User
 {
@@ -21,11 +24,14 @@ class User
      * @ORM\Id()
      * @ORM\GeneratedValue()
      * @ORM\Column(type="integer")
+     * @Serializer\Expose()
+     * @Groups({"ActivityDetails"})
      */
     protected $id;
 
     /**
      * @ORM\Column(type="string")
+     * @Serializer\Expose()
      */
     private $username;
 
@@ -36,37 +42,44 @@ class User
 
     /**
      * @ORM\Column(type="string")
+     * @Serializer\Expose()
      */
     private $position;
 
     /**
      * @ORM\Column(type="integer")
+     * @Serializer\Expose()
      */
     private $seniority = self::SENIORITY_JUNIOR;
 
     /**
      * @ORM\Column(type="string")
+     * @Serializer\Expose()
      */
     private $name;
 
     /**
      * @ORM\Column(type="string")
+     * @Serializer\Expose()
      */
     private $surname;
 
     /**
      * @ORM\Column(type="datetime")
+     * @Serializer\Expose()
      */
     private $createdAt;
 
     /**
      * @ORM\Column(type="datetime")
+     * @Serializer\Expose()
      */
     private $updatedAt;
 
     /**
      * @var Collection|Technology[]
      * @ORM\ManyToMany(targetEntity="Technology")
+     * @Serializer\Expose()
      */
     protected $technologies;
 
