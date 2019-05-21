@@ -1,0 +1,16 @@
+{# templates/api/activities.html.twig #}
+<h1>Activities</h1>
+{% for activity in activities %}
+    <div>
+        <h8>ID: {{ activity.id }}</h8>
+        <br>
+        <h8>Name: {{ activity.name }}</h8>
+        <br>
+        <h8>Description: {{ activity.description }}</h8>
+        <br>
+        <h8>Status: {{ activity.status }}</h8>
+        <br>
+        <input type="submit" value="delete">
+        <br> <br>
+    </div>
+{% endfor %}
