@@ -126,15 +126,6 @@
     "fzaninotto/faker": {
         "version": "v1.8.0"
     },
-    "guzzlehttp/guzzle": {
-        "version": "6.3.3"
-    },
-    "guzzlehttp/promises": {
-        "version": "v1.3.1"
-    },
-    "guzzlehttp/psr7": {
-        "version": "1.5.2"
-    },
     "hoa/compiler": {
         "version": "3.17.08.08"
     },
@@ -205,21 +196,6 @@
             "config/packages/jms_serializer.yaml",
             "config/packages/prod/jms_serializer.yaml"
         ]
-    },
-    "knpuniversity/oauth2-client-bundle": {
-        "version": "1.20",
-        "recipe": {
-            "repo": "github.com/symfony/recipes-contrib",
-            "branch": "master",
-            "version": "1.20",
-            "ref": "80acc9223a205cbf5d9828fd616c82a374d281dd"
-        },
-        "files": [
-            "config/packages/knpu_oauth2_client.yaml"
-        ]
-    },
-    "league/oauth2-client": {
-        "version": "2.4.1"
     },
     "maglnet/composer-require-checker": {
         "version": "2.0.0"
@@ -345,17 +321,11 @@
     "psr/container": {
         "version": "1.0.0"
     },
-    "psr/http-message": {
-        "version": "1.0.1"
-    },
     "psr/log": {
         "version": "1.1.0"
     },
     "psr/simple-cache": {
         "version": "1.0.1"
-    },
-    "ralouphie/getallheaders": {
-        "version": "2.0.5"
     },
     "sebastian/code-unit-reverse-lookup": {
         "version": "1.0.1"
