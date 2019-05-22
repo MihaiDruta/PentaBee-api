@@ -5,9 +5,12 @@ namespace App\Entity;
 use DateTime;
 use DateTimeInterface;
 use Doctrine\ORM\Mapping as ORM;
+use JMS\Serializer\Annotation\Groups;
+use JMS\Serializer\Annotation as Serializer;
 
 /**
  * @ORM\Entity(repositoryClass="App\Repository\TechnologyRepository")
+ * @Serializer\ExclusionPolicy("all")
  */
 class Technology
 {
@@ -15,26 +18,32 @@ class Technology
      * @ORM\Id()
      * @ORM\GeneratedValue()
      * @ORM\Column(type="integer")
+     * @Serializer\Expose()
+     * @Groups({"TechnologyDetail", "ActivityDetails"})
      */
     protected $id;
 
     /**
      * @ORM\Column(type="string")
+     * @Groups({"TechnologyDetail"})
      */
     private $name;
 
     /**
      * @ORM\Column(type="text")
+     * @Groups({"TechnologyDetail"})
      */
     private $description;
 
     /**
      * @ORM\Column(type="datetime")
+     * @Groups({"TechnologyDetail"})
      */
     private $createdAt;
 
     /**
      * @ORM\Column(type="datetime")
+     * @Groups({"TechnologyDetail"})
      */
     private $updatedAt;
 

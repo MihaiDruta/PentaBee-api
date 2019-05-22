@@ -7,9 +7,12 @@ use DateTimeInterface;
 use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\ORM\Mapping as ORM;
 use Doctrine\Common\Collections\Collection;
+use JMS\Serializer\Annotation as Serializer;
+use JMS\Serializer\Annotation\Groups;
 
 /**
  * @ORM\Entity(repositoryClass="App\Repository\ActivityRepository")
+ * @Serializer\ExclusionPolicy("all")
  */
 class Activity
 {
@@ -21,58 +24,80 @@ class Activity
      * @ORM\Id()
      * @ORM\GeneratedValue()
      * @ORM\Column(type="integer")
+     * @Serializer\Expose()
+     * @Groups({"ActivityList", "ActivityDetails"})
      */
     protected $id;
 
     /**
      * @ORM\Column(type="string")
+     * @Serializer\Expose()
+     * @Groups({"ActivityList", "ActivityDetails"})
      */
     private $name;
 
     /**
      * @ORM\Column(type="text")
+     * @Serializer\Expose()
+     * @Groups({"ActivityDetails"})
      */
     private $description;
 
     /**
      * @ORM\Column(type="datetime")
+     * @Serializer\Expose()
+     * @Groups({"ActivityDetails"})
      */
     private $applicationDeadline;
 
     /**
      * @ORM\Column(type="datetime")
+     * @Serializer\Expose()
+     * @Groups({"ActivityDetails"})
      */
     private $finalDeadline;
 
     /**
      * @ORM\Column(type="integer")
+     * @Serializer\Expose()
+     * @Groups({"ActivityList", "ActivityDetails"})
      */
     private $status = self::STATUS_NEW;
 
     /**
      * @ORM\ManyToOne(targetEntity="User")
+     * @Serializer\Expose()
+     * @Groups({"ActivityDetails"})
      */
     private $owner;
 
     /**
      * @ORM\Column(type="datetime")
+     * @Serializer\Expose()
+     * @Groups({"ActivityDetails"})
      */
     private $createdAt;
 
     /**
      * @ORM\Column(type="datetime")
+     * @Serializer\Expose()
+     * @Groups({"ActivityDetails"})
      */
     private $updatedAt;
 
     /**
      * @var Collection|Technology[]
      * @ORM\ManyToMany(targetEntity="Technology")
+     * @Serializer\Expose()
+     * @Groups({"ActivityDetails"})
      */
     protected $technologies;
 
     /**
      * @var Collection|Type[]
      * @ORM\ManyToMany(targetEntity="Type")
+     * @Serializer\Expose()
+     * @Groups({"ActivityDetails"})
      */
     protected $types;
 
